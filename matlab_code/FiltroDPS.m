@@ -1,6 +1,7 @@
 %% Prueba filtro DSP / arduino due
 clc; clear all; close all;
-cd('D:\INGENIERIA\año 5\1ercuatrimestre\DSP - PROM 9\EJERCICIOSMATLAB');
+path=fileparts(matlab.desktop.editor.getActiveFilename);
+cd(path);
 [x,f]=audioread('guitarsample.wav');
 x=x(:,1);
 sound(x,f);
