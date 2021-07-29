@@ -17,3 +17,5 @@ Sure! Although, you may need to implement/solder your own shield board. Kinda me
 - First step is to have MATLAB installed and download .m script and .wav file all together in a same folder. Then run first section of the code by stepping into it and pressing Ctrl + Enter. Math plot windows will show and you will hear wav file playing, it's a clean guitar sample.
 
 - Second step is to choose any filter, step into it and run Ctrl + Enter, you will hear the same guitar sample but with effects now!
+
+You can see my demo <a href="https://youtu.be/2o7k0JsRSl8" target="_blank" ref="noreferred">here </a>

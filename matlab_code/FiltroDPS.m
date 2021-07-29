@@ -9,11 +9,12 @@ Fs=100000;
 Ts=1/Fs;
 t=linspace(-0.1,0.1,length(x));
 subplot(2,1,1);
-plot(t,x);title('señal de audio');
+plot(t,x);title('audio signal');
 X=fftshift(fft(x,length(x))/length(x));
 F=linspace(-Fs/2,Fs/2,length(X));
 subplot(2,1,2);
-plot(F,abs(X));title('espectro de la señal');xlim([-10000 10000]);
+plot(F,abs(X));title('signal spectrum');xlim([-10000 10000]);
+
 %%  agrego Flanger
 delay=15; % tiempo en milisegundos despues de la señal original donde va ser sumada una nueva señal
 rango=12; % amplitud de la señal sumada
@@ -32,11 +33,11 @@ end
  % grafico
 figure(3)
 subplot(2,1,1);
-plot(t,y);title('señal de audio filtrada con flanger');
+plot(t,y);title('flanger filtered audio signal');
 Y=fftshift(fft(y,length(y))/length(y));
 F1=linspace(-Fs/2,Fs/2,length(Y));
 subplot(2,1,2);
-plot(F1,abs(Y));title('espectro de la señal filtrada con flanger');xlim([-10000 10000]);
+plot(F1,abs(Y));title('flanger filtered signal spectrum');xlim([-10000 10000]);
 sound(y,f)
 %% chorus
 delay=20;% tiempo en milisegundos despues de la señal original donde va ser sumada una nueva señal
@@ -56,11 +57,11 @@ end
  % grafico
 figure(3)
 subplot(2,1,1);
-plot(t,y);title('señal de audio filtrada con flanger');
+plot(t,y);title('chorus filtered audio signal');
 Y=fftshift(fft(y,length(y))/length(y));
 F1=linspace(-Fs/2,Fs/2,length(Y));
 subplot(2,1,2);
-plot(F1,abs(Y));title('espectro de la señal filtrada con flanger');xlim([-10000 10000]);
+plot(F1,abs(Y));title('chorus filtered signal spectrum');xlim([-10000 10000]);
 sound(y,f)
 %% chorus 2.0
 delay1=30;% tiempo en milisegundos despues de la señal original donde va ser sumada una nueva señal
@@ -83,11 +84,11 @@ end
  % grafico
 figure(3)
 subplot(2,1,1);
-plot(t,y);title('señal de audio filtrada con flanger');
+plot(t,y);title('chorus 2.0 filtered audio signal');
 Y=fftshift(fft(y,length(y))/length(y));
 F1=linspace(-Fs/2,Fs/2,length(Y));
 subplot(2,1,2);
-plot(F1,abs(Y));title('espectro de la señal filtrada con flanger');xlim([-10000 10000]);
+plot(F1,abs(Y));title('chorus 2.0 filtered signal spectrum');xlim([-10000 10000]);
 sound(y,f)
 %% OTRO FLANGER
 lfo_freq = 1/3; % LFO Freq (Hz)
@@ -104,11 +105,11 @@ end
  % grafico
 figure(3)
 subplot(2,1,1);
-plot(t,y);title('señal de audio filtrada con flanger');
+plot(t,y);title('flanger filtered audio signal');
 Y=fftshift(fft(y,length(y))/length(y));
 F1=linspace(-Fs/2,Fs/2,length(Y));
 subplot(2,1,2);
-plot(F1,abs(Y));title('espectro de la señal filtrada con flanger');xlim([-10000 10000]);
+plot(F1,abs(Y));title('flanger filtered signal spectrum');xlim([-10000 10000]);
 sound(y,f)
 
 %% distortion
@@ -117,11 +118,11 @@ k = 2*a/(1-a);
 y= (1+k)*(x)./(1+k*abs(x));
 figure(3)
 subplot(2,1,1);
-plot(t,y);title('señal de audio filtrada con distorsion');
+plot(t,y);title('distortion filtered audio signal');
 Y=fftshift(fft(y,length(y))/length(y));
 F1=linspace(-Fs/2,Fs/2,length(Y));
 subplot(2,1,2);
-plot(F1,abs(Y));title('espectro de la señal filtrada con distorsion');xlim([-10000 10000]);
+plot(F1,abs(Y));title('distortion filtered signal spectrum');xlim([-10000 10000]);
 sound(y,f)
 %% Filtro FIR pasabajo
 pasabajo=[0.00720845348367704,0.00927912086341559,0.0152549779154740,0.0245915630709705,0.0363999242637434,0.0495344523495799,0.0627075376059401,0.0746193693865725,0.0840895651631092,0.0901770691219197,0.0922759335511966,0.0901770691219197,0.0840895651631092,0.0746193693865725,0.0627075376059401,0.0495344523495799,0.0363999242637434,0.0245915630709705,0.0152549779154740,0.00927912086341559,0.00720845348367704];
