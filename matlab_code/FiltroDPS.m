@@ -4,7 +4,7 @@ path=fileparts(matlab.desktop.editor.getActiveFilename);
 cd(path);
 [x,f]=audioread('guitarsample.wav');
 x=x(:,1);
-sound(x,f);
+%sound(x,f);
 Fs=100000;
 Ts=1/Fs;
 t=linspace(-0.1,0.1,length(x));
@@ -89,7 +89,23 @@ Y=fftshift(fft(y,length(y))/length(y));
 F1=linspace(-Fs/2,Fs/2,length(Y));
 subplot(2,1,2);
 plot(F1,abs(Y));title('chorus 2.0 filtered signal spectrum');xlim([-10000 10000]);
+%sound(y,f)
+%% CLEAN GUITAR
+sound(x,f)
+%% GUITAR WITH EFFECT
 sound(y,f)
+%% distortion
+a=0.9;
+k = 2*a/(1-a);
+y= (1+k)*(x)./(1+k*abs(x));
+figure(3)
+subplot(2,1,1);
+plot(t,y);title('distortion filtered audio signal');
+Y=fftshift(fft(y,length(y))/length(y));
+F1=linspace(-Fs/2,Fs/2,length(Y));
+subplot(2,1,2);
+plot(F1,abs(Y));title('distortion filtered signal spectrum');xlim([-10000 10000]);
+%sound(y,f)
 %% OTRO FLANGER
 lfo_freq = 1/3; % LFO Freq (Hz)
 lfo_amp = 0.004; % LFO Amp (sec)
@@ -112,18 +128,7 @@ subplot(2,1,2);
 plot(F1,abs(Y));title('flanger filtered signal spectrum');xlim([-10000 10000]);
 sound(y,f)
 
-%% distortion
-a=0.9;
-k = 2*a/(1-a);
-y= (1+k)*(x)./(1+k*abs(x));
-figure(3)
-subplot(2,1,1);
-plot(t,y);title('distortion filtered audio signal');
-Y=fftshift(fft(y,length(y))/length(y));
-F1=linspace(-Fs/2,Fs/2,length(Y));
-subplot(2,1,2);
-plot(F1,abs(Y));title('distortion filtered signal spectrum');xlim([-10000 10000]);
-sound(y,f)
+
 %% Filtro FIR pasabajo
 pasabajo=[0.00720845348367704,0.00927912086341559,0.0152549779154740,0.0245915630709705,0.0363999242637434,0.0495344523495799,0.0627075376059401,0.0746193693865725,0.0840895651631092,0.0901770691219197,0.0922759335511966,0.0901770691219197,0.0840895651631092,0.0746193693865725,0.0627075376059401,0.0495344523495799,0.0363999242637434,0.0245915630709705,0.0152549779154740,0.00927912086341559,0.00720845348367704];
 y=filter(pasabajo,1,x);

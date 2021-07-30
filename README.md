@@ -18,4 +18,4 @@ Sure! Although, you may need to implement/solder your own shield board. Kinda me
 
 - Second step is to choose any filter, step into it and run Ctrl + Enter, you will hear the same guitar sample but with effects now!
 
-You can see my demo <a href="https://youtu.be/2o7k0JsRSl8" target="_blank" ref="noreferred">here </a>
+You can see my demo <a href="https://www.linkedin.com/posts/julian-pinel_c-matlab-arduino-activity-6826684093904764928-YmtJ" target="_blank" ref="noreferred">here </a>
